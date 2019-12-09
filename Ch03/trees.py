@@ -1,5 +1,8 @@
 from math import log
 import operator
+# import treePlotter
+import treePlotter
+
 
 def calcShannonEnt(dataSet):
     #计算数据集长度
@@ -103,8 +106,17 @@ def createTree(dataSet,labels):
 
 
 
+
+
+
 if __name__=="__main__":
-    dataSet,labels = createDataSet()
-    print(dataSet)
+    # dataSet,labels = createDataSet()
+    # print(dataSet)
     # shannonEnt = calcShannonEnt(dataSet)
-    print(chooseBestFeatureToSplit(dataSet))
+    # print(chooseBestFeatureToSplit(dataSet))
+    # print(createTree(dataSet,labels))
+    myTree = treePlotter.retrieveTree(0)
+    print(myTree)
+    myTree['no surfacing'][3]='maybe'
+    print(myTree)
+    treePlotter.createPlot(myTree)
