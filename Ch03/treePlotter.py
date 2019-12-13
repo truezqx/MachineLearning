@@ -15,11 +15,14 @@ def getNumLeafs(myTree:dict):
     numLeafs = 0
     firstStr = list(myTree.keys())[0]
     secondDict = myTree[firstStr]
-    for key in secondDict.keys():
-        if type(secondDict[key]).__name__ == "dict":
-            numLeafs += getNumLeafs(secondDict[key])
-        else:
-            numLeafs += 1
+    if type(secondDict).__name__ == "dict":
+        for key in secondDict.keys():
+            if type(secondDict[key]).__name__ == "dict":
+                numLeafs += getNumLeafs(secondDict[key])
+            else:
+                numLeafs += 1
+    else:
+        numLeafs += 1
     return  numLeafs
 
 
@@ -85,4 +88,6 @@ def createPlot(inTree):
 
 if __name__ == "__main__":
     # createPlot()
-    print(retrieveTree(1))
+    # print(retrieveTree(1))
+    d = {"a":{0:"no",1:"yes"}}
+    print(getTreeDepth(d))
